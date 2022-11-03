@@ -12,10 +12,10 @@
         <div class="btn-container">
           <el-button type="primary" style="width: 100%" @click="submitForm()">登录</el-button>
         </div>
-        <!-- <div class="operation">
+        <div class="operation">
           <span class="free-register" @click="showLogin = !showLogin">免费注册</span>
           <span class="forget-password" @click="handleForget">忘记密码</span>
-        </div> -->
+        </div>
       </el-form-item>
     </el-form>
     <!-- <el-form v-if="!showLogin" ref="registerRef" :model="registerForm" status-icon :hide-required-asterisk="true" :rules="rules" label-width="100px" class="login-form">
