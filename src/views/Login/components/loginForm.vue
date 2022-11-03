@@ -18,7 +18,7 @@
         </div>
       </el-form-item>
     </el-form>
-    <el-form v-if="!showLogin" ref="registerRef" :model="registerForm" status-icon :hide-required-asterisk="true" :rules="rules" label-width="100px" class="login-form">
+    <!-- <el-form v-if="!showLogin" ref="registerRef" :model="registerForm" status-icon :hide-required-asterisk="true" :rules="rules" label-width="100px" class="login-form">
       <el-form-item label="邮箱" prop="email">
         <el-input v-model="registerForm.email" autocomplete="off" placeholder="请输入注册邮箱">
           <template #append>
@@ -44,7 +44,7 @@
           <span class="to-login" @click="showLogin = !showLogin">已有账号<em>去登陆</em></span>
         </div>
       </el-form-item>
-    </el-form>
+    </el-form> -->
   </div>
 </template>
 <script lang="ts">
