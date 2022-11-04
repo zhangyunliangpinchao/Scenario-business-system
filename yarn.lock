@@ -45,7 +45,7 @@
   "resolved" "https://registry.npmmirror.com/@babel/standalone/-/standalone-7.17.5.tgz"
   "version" "7.17.5"
 
-"@commitlint/cli@^12.1.1":
+"@commitlint/cli@^12.1.4":
   "integrity" "sha512-ZR1WjXLvqEffYyBPT0XdnSxtt3Ty1TMoujEtseW5o3vPnkA1UNashAMjQVg/oELqfaiAMnDw8SERPMN0e/0kLg=="
   "resolved" "https://registry.npmmirror.com/@commitlint/cli/-/cli-12.1.4.tgz"
   "version" "12.1.4"
@@ -60,7 +60,7 @@
     "resolve-global" "1.0.0"
     "yargs" "^16.2.0"
 
-"@commitlint/config-conventional@^12.1.1":
+"@commitlint/config-conventional@^12.1.4":
   "integrity" "sha512-ZIdzmdy4o4WyqywMEpprRCrehjCSQrHkaRTVZV411GyLigFQHlEBSJITAihLAWe88Qy/8SyoIe5uKvAsV5vRqQ=="
   "resolved" "https://registry.npmmirror.com/@commitlint/config-conventional/-/config-conventional-12.1.4.tgz"
   "version" "12.1.4"

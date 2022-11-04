@@ -4,26 +4,6 @@
       <hamburger id="Hamburger" :is-active="opened" class="hamburger-container" @toggleClick="toggleSideBar" />
       <breadcrumb class="breadcrumb-container" />
       <div class="right-menu">
-        <search></search>
-        <lang-switch></lang-switch>
-        <div id="Message" class="right-menu-box">
-          <el-dropdown>
-            <el-badge :value="messageNum" :max="99" class="message-badge" type="danger">
-              <el-button class="message">
-                <el-icon><Message /></el-icon>
-              </el-button>
-            </el-badge>
-            <template #dropdown>
-              <el-dropdown-menu>
-                <el-dropdown-item command="a">mike 回复了你的邮件</el-dropdown-item>
-                <el-dropdown-item command="b">您有5个新任务</el-dropdown-item>
-                <el-dropdown-item command="c">您已经和Jone成为了好友</el-dropdown-item>
-                <el-dropdown-item command="d">项目验收通知</el-dropdown-item>
-                <el-dropdown-item command="e" divided>新会议通知</el-dropdown-item>
-              </el-dropdown-menu>
-            </template>
-          </el-dropdown>
-        </div>
         <div id="fullScreen" class="right-menu-box">
         <el-button class="full-screen">
           <el-tooltip :content="langConfig.header.fullScreen[lang]" effect="dark" placement="left">

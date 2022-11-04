@@ -30,6 +30,46 @@ export const constantRoutes: Array<RouteRecordRaw> = [
     ]
   },
   {
+    path: '/',
+    name: 'carModel',
+    component: layout,
+    meta: {
+      title: {
+        '/zh-CN': '基础库管理',
+        '/en-US': 'carModel'
+      },
+      icon: 'ic ic-manage-fill'
+    },
+    children: [
+      {      
+      path: '/lib/carModel/list',
+      name: 'carModelList',
+      component: () => import(/* webpackChunkName: "carModel" */ '@/views/lib/carModel/list.vue'),
+      meta: {
+        title: {
+          '/zh-CN': '基础库管理',
+          '/en-US': 'carManage'
+        },
+        icon: 'ic ic-manage-fill'
+      },
+    },
+    // {      
+    //   path: '/lib/carModel/list',
+    //   name: 'carModelList',
+
+    //   component: () => import(/* webpackChunkName: "carModel" */ '@/views/lib/carModel/list.vue'),
+    //   meta: {
+    //     title: {
+    //       '/zh-CN': '新增车型',
+    //       '/en-US': 'carManage111'
+    //     },
+    //     hidden: true,
+    //     icon: 'ic ic-manage-fill'
+    //   },
+    // }
+    ]
+  },
+  {
     path: '/login',
     name: '登录',
     component: () => import(/* webpackChunkName: "login" */ '@/views/Login/index.vue'),
