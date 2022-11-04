@@ -1,6 +1,7 @@
 <template>
+
   <div class="form-container">
-    <el-form v-if="showLogin" ref="loginFormRef" :model="loginForm" status-icon :hide-required-asterisk="true" :rules="rules" label-width="100px" class="login-form">
+    <el-form v-if="showLogin" ref="loginFormRef" :model="loginForm" status-icon :hide-required-asterisk="true" :rules="rules" label-width="80px" class="login-form">
       <el-form-item label="账号" prop="email">
         <el-input v-model="loginForm.email" autocomplete="off" placeholder="请输入登录邮箱(super@outlook.com)"></el-input>
       </el-form-item>
@@ -9,13 +10,14 @@
       </el-form-item>
 
       <el-form-item>
-        <div class="btn-container">
-          <el-button type="primary" style="width: 100%" @click="submitForm()">登录</el-button>
+        <div class="button_box">
+          <el-button plan class="cancel_btn"  @click="onCancel(loginFormRef)">取消</el-button>
+          <el-button class="login_btn" type="primary"  @click="submitForm()">登录</el-button>
         </div>
-        <div class="operation">
+        <!-- <div class="operation">
           <span class="free-register" @click="showLogin = !showLogin">免费注册</span>
           <span class="forget-password" @click="handleForget">忘记密码</span>
-        </div>
+        </div> -->
       </el-form-item>
     </el-form>
     <!-- <el-form v-if="!showLogin" ref="registerRef" :model="registerForm" status-icon :hide-required-asterisk="true" :rules="rules" label-width="100px" class="login-form">
@@ -138,48 +140,53 @@ export default defineComponent({
     const submitForm = () => {
       loginFormRef.value.validate(async (valid: any) => {
         if (valid) {
-          try {
-            const { email, password } = state.loginForm
-            const data = {
-              email,
-              // password
-              password: encrypt(password)
-            }
-            const res = await Service.postLogin(data)
-            const userInfo = await Service.postAuthUserInfo({ email })
+          router.push('/')
+          // try {
+          //   const { email, password } = state.loginForm
+          //   const data = {
+          //     email,
+          //     // password
+          //     password: encrypt(password)
+          //   }
+          //   const res = await Service.postLogin(data)
+          //   const userInfo = await Service.postAuthUserInfo({ email })
 
-            const accessToken = res?.data?.accessToken ?? null
-            if (accessToken) {
-              // 将角色存储到全局vuex roles
-              if (userInfo.status === 0) {
-                store.dispatch('permissionModule/getPermissonRoles', userInfo.data)
-              }
-              // 先进行异步路由处理
-              store.dispatch('permissionModule/getPermissonRoutes', userInfo.data)
-              store.dispatch('permissionModule/getPermissions')
-              sessionStorage.setItem('auth', 'true')
-              sessionStorage.setItem('accessToken', accessToken)
-              if (route.query.redirect) {
-                const path = route.query.redirect
-                router.push({ path: path as string })
-              } else {
-                router.push('/')
-              }
-            } else {
-              ElMessage({
-                type: 'warning',
-                message: '账号或者密码有误'
-              })
-            }
-          } catch (err) {
-            ElMessage({
-              type: 'warning',
-              message: err.message
-            })
-          }
+          //   const accessToken = res?.data?.accessToken ?? null
+          //   if (accessToken) {
+          //     // 将角色存储到全局vuex roles
+          //     if (userInfo.status === 0) {
+          //       store.dispatch('permissionModule/getPermissonRoles', userInfo.data)
+          //     }
+          //     // 先进行异步路由处理
+          //     store.dispatch('permissionModule/getPermissonRoutes', userInfo.data)
+          //     store.dispatch('permissionModule/getPermissions')
+          //     sessionStorage.setItem('auth', 'true')
+          //     sessionStorage.setItem('accessToken', accessToken)
+          //     if (route.query.redirect) {
+          //       const path = route.query.redirect
+          //       router.push({ path: path as string })
+          //     } else {
+          //       router.push('/')
+          //     }
+          //   } else {
+          //     ElMessage({
+          //       type: 'warning',
+          //       message: '账号或者密码有误'
+          //     })
+          //   }
+          // } catch (err) {
+          //   ElMessage({
+          //     type: 'warning',
+          //     message: err.message
+          //   })
+          // }
         }
         return false
       })
+    }
+    const onCancel=(formEl: any)=>{
+      if (!formEl) return
+      formEl.resetFields()
     }
     /**
      * @description 处理注册接口
@@ -291,6 +298,7 @@ export default defineComponent({
       codeText,
       rules,
       submitForm,
+      onCancel,
       handleRegister,
       handleGetCaptcha,
       handleForget
@@ -300,14 +308,20 @@ export default defineComponent({
 </script>
 <style lang="stylus" scoped>
 .form-container{
-  width:100%;
-
-  :deep(.el-input-group__append) {
-    padding:0px 7px;
+  width: 100%;
+  ::v-deep .el-input__inner{
+    width: 400px;
+    height: 40px;
+    line-height: 80px;
+    // border: 1px solid #c8c8c8;
+    padding-left: 10px;
+    color: #666666;
   }
-
-  :deep(.el-input-group__prepend) {
-    padding:0px 7px;
+  ::v-deep .el-form-item__label{
+    text-align: left;
+    line-height: 60px;
+    color: #666666;
+    font-size: 18px;
   }
 
   .login-form{
@@ -347,12 +361,28 @@ export default defineComponent({
         color: #9fa2a8;
       }
     }
-    .btn-container{
-        width:100%;
-        display :flex;
-        flex-direction:row;
-        justify-content :flex-start;
-        align-items :center;
+    .button_box{
+      overflow: hidden;
+      text-align: center;
+      padding-top: 20px;
+      padding-left: 50px;
+      .cancel_btn{
+        float: left;
+        font-size: 16px;
+        width: 100px;
+        height: 40px;
+        border: 1px solid #0087E8;
+        color: #0087E8;
+      }
+      .login_btn{
+        float: left;
+        font-size: 16px;
+        margin-left: 80px;
+        width: 100px;
+        height: 40px;
+        background-color: #0087E8;
+        color: #fff;
+      }
     }
   }
 </style>
