@@ -3,35 +3,36 @@ import { store } from '../store'
 import layout from '../layout/index.vue'
 // 静态路由
 export const constantRoutes: Array<RouteRecordRaw> = [
-  {
-    path: '/',
-    component: layout,
-    redirect: '/home',
-    meta: {
-      title: {
-        '/zh-CN': '首页',
-        '/en-US': 'Home Page'
-      },
-      icon: 'ic ic-homepage-fill'
-    },
-    children: [
-      {
-        path: '/home',
-        name: 'home',
-        component: () => import(/* webpackChunkName: "home" */ '@/views/Home/home.vue'),
-        meta: {
-          title: {
-            '/zh-CN': '首页',
-            '/en-US': 'Home Page'
-          },
-          icon: 'ic ic-homepage-fill'
-        }
-      }
-    ]
-  },
+  // {
+  //   path: '/',
+  //   component: layout,
+  //   redirect: '/home',
+  //   meta: {
+  //     title: {
+  //       '/zh-CN': '首页',
+  //       '/en-US': 'Home Page'
+  //     },
+  //     icon: 'ic ic-homepage-fill'
+  //   },
+  //   children: [
+  //     {
+  //       path: '/home',
+  //       name: 'home',
+  //       component: () => import(/* webpackChunkName: "home" */ '@/views/Home/home.vue'),
+  //       meta: {
+  //         title: {
+  //           '/zh-CN': '首页',
+  //           '/en-US': 'Home Page'
+  //         },
+  //         icon: 'ic ic-homepage-fill'
+  //       }
+  //     }
+  //   ]
+  // },
   {
     path: '/',
     name: 'carModel',
+    redirect: '/Lib/carModel/list',
     component: layout,
     meta: {
       title: {
@@ -42,9 +43,9 @@ export const constantRoutes: Array<RouteRecordRaw> = [
     },
     children: [
       {      
-      path: '/lib/carModel/list',
+      path: '/Lib/carModel/list',
       name: 'carModelList',
-      component: () => import(/* webpackChunkName: "carModel" */ '@/views/lib/carModel/list.vue'),
+      component: () => import(/* webpackChunkName: "carModel" */ '@/views/Lib/carModel/list.vue'),
       meta: {
         title: {
           '/zh-CN': '基础库管理',
