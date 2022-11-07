@@ -1,0 +1,10 @@
+.content {
+  margin: 0px 20px;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 2px 0px;
+}
+
+.content-offset {
+  margin-right: 70px;
+}

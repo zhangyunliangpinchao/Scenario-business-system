@@ -1,0 +1,22 @@
+.row-centre {
+    position: absolute;
+    top: 45%;
+    transform: translateY(-50%);
+    padding-left: 40px;
+}
+
+.row-centre2 {
+    position: absolute;
+    top: 45%;
+    transform: translateY(-50%);
+}
+
+.row-box {
+    height: 40px;
+    border-bottom: 2px solid #f4f6fa;
+}
+
+.row-border-bottom {
+    height: 40px;
+    border-bottom: 2px solid #f4f6fa;
+}

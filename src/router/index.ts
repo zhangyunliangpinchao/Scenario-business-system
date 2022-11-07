@@ -3,36 +3,10 @@ import { store } from '../store'
 import layout from '../layout/index.vue'
 // 静态路由
 export const constantRoutes: Array<RouteRecordRaw> = [
-  // {
-  //   path: '/',
-  //   component: layout,
-  //   redirect: '/home',
-  //   meta: {
-  //     title: {
-  //       '/zh-CN': '首页',
-  //       '/en-US': 'Home Page'
-  //     },
-  //     icon: 'ic ic-homepage-fill'
-  //   },
-  //   children: [
-  //     {
-  //       path: '/home',
-  //       name: 'home',
-  //       component: () => import(/* webpackChunkName: "home" */ '@/views/Home/home.vue'),
-  //       meta: {
-  //         title: {
-  //           '/zh-CN': '首页',
-  //           '/en-US': 'Home Page'
-  //         },
-  //         icon: 'ic ic-homepage-fill'
-  //       }
-  //     }
-  //   ]
-  // },
   {
     path: '/',
     name: 'carModel',
-    redirect: '/Lib/carModel/list',
+    redirect: '/lib/carModel/list',
     component: layout,
     meta: {
       title: {
@@ -42,32 +16,70 @@ export const constantRoutes: Array<RouteRecordRaw> = [
       icon: 'ic ic-manage-fill'
     },
     children: [
-      {      
-      path: '/Lib/carModel/list',
-      name: 'carModelList',
-      component: () => import(/* webpackChunkName: "carModel" */ '@/views/Lib/carModel/list.vue'),
-      meta: {
-        title: {
-          '/zh-CN': '基础库管理',
-          '/en-US': 'carManage'
-        },
-        icon: 'ic ic-manage-fill'
+      {
+        path: '/lib/carModel/list',
+        name: 'carModelList',
+        component: () => import(/* webpackChunkName: "carModel" */ '@/views/lib/carModel/list.vue'),
+        meta: {
+          title: {
+            '/zh-CN': '基础库管理',
+            '/en-US': 'carManage'
+          },
+          icon: 'ic ic-manage-fill'
+        }
       },
+      {
+        path: '/lib/carModel/edit',
+        name: 'carModelEdit',
+        component: () => import(/* webpackChunkName: "carModelEdit" */ '@/views/lib/carModel/edit.vue'),
+        meta: {
+          title: {
+            '/zh-CN': '新增车型',
+            '/en-US': 'carManage111'
+          },
+          hidden: true,
+          icon: 'ic ic-manage-fill'
+        }
+      },
+      {
+        path: '/lib/carModel/info',
+        name: 'carModelInfo',
+        component: () => import(/* webpackChunkName: "carModelEdit" */ '@/views/lib/carModel/info.vue'),
+        meta: {
+          title: {
+            '/zh-CN': '车型详情',
+            '/en-US': 'carManage111'
+          },
+          hidden: true,
+          icon: 'ic ic-manage-fill'
+        }
+      }
+    ]
+  },
+  {
+    path: '/',
+    component: layout,
+    // redirect: '/home',
+    meta: {
+      title: {
+        '/zh-CN': '首页',
+        '/en-US': 'Home Page'
+      },
+      icon: 'ic ic-homepage-fill'
     },
-    // {      
-    //   path: '/lib/carModel/list',
-    //   name: 'carModelList',
-
-    //   component: () => import(/* webpackChunkName: "carModel" */ '@/views/lib/carModel/list.vue'),
-    //   meta: {
-    //     title: {
-    //       '/zh-CN': '新增车型',
-    //       '/en-US': 'carManage111'
-    //     },
-    //     hidden: true,
-    //     icon: 'ic ic-manage-fill'
-    //   },
-    // }
+    children: [
+      {
+        path: '/home',
+        name: 'home',
+        component: () => import(/* webpackChunkName: "home" */ '@/views/Home/home.vue'),
+        meta: {
+          title: {
+            '/zh-CN': '首页',
+            '/en-US': 'Home Page'
+          },
+          icon: 'ic ic-homepage-fill'
+        }
+      }
     ]
   },
   {

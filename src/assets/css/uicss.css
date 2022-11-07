@@ -1,0 +1,25 @@
+
+.row-centre {
+  position: absolute;
+  top: 45%;
+  transform: translateY(-50%);
+}
+.title-font1 {
+  height: 42px;
+  line-height: 42px;
+  font-weight: 500;
+  font-size: 28px;
+}
+.title-font2 {
+  color: #797979;
+  height: 14px;
+  line-height: 14px;
+  font-weight: 400;
+  font-size: 14px;
+}
+.content {
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 2px 0px;
+  padding: 3px 13px;
+}
